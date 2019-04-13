@@ -22,6 +22,7 @@ public class HttpServerIO {
     public enum HttpServerIOState: Int32 {
         case starting
         case running
+        case paused
         case stopping
         case stopped
     }
@@ -42,7 +43,23 @@ public class HttpServerIO {
         }
     }
 
-    public var operating: Bool { get { return self.state == .running } }
+    ///convenience check for self.state == .paused
+    public var isPaused: Bool { get { return self.state == .paused } }
+
+    ///convenience check for self.state == .starting
+    public var isStarting: Bool  { get { return self.state == .starting } }
+
+    ///convenience check for self.state == .running || self.state == .paused
+    public var isRunning: Bool { get { return self.state == .running || self.state == .paused} }
+
+    ///convenience check for self.state == .stopping
+    public var isStopping: Bool  { get { return self.state == .stopping } }
+
+    ///convenience check for self.state == .stopped
+    public var isStopped: Bool  { get { return self.state == .stopped } }
+
+    ///convenience check for self.isRunning
+    public var operating: Bool { get { return self.isRunning } }
 
     /// String representation of the IPv4 address to receive requests from.
     /// It's only used when the server is started with `forceIPv4` option set to true.
@@ -69,9 +86,13 @@ public class HttpServerIO {
     }
 
     @available(macOS 10.10, *)
-    public func start(_ port: in_port_t = 8080, forceIPv4: Bool = false, priority: DispatchQoS.QoSClass = DispatchQoS.QoSClass.background) throws {
-        guard !self.operating else { return }
-        stop()
+    public func start(_ port: in_port_t = 8080, forceIPv4: Bool = false, priority: DispatchQoS.QoSClass = DispatchQoS.QoSClass.background, completionBlock:(()->())? = nil) throws {
+        guard !self.operating && !self.isStarting && !self.isStopped else { return }
+
+        defer {
+            DispatchQueue.main.runBlock(completionBlock)
+        }
+
         self.state = .starting
         let address = forceIPv4 ? listenAddressIPv4 : listenAddressIPv6
         self.socket = try Socket.tcpSocketForListen(port, forceIPv4, SOMAXCONN, address)
@@ -94,10 +115,34 @@ public class HttpServerIO {
             }
             strongSelf.stop()
         }
+        
+        
+    }
+    
+    public func pause(completionBlock:(()->())? = nil) {
+        guard !self.isPaused && self.operating else { return }
+        defer {
+            DispatchQueue.main.runBlock(completionBlock)
+        }
+        self.state = .paused
+
     }
 
-    public func stop() {
+    
+    public func resume(completionBlock:(()->())? = nil) {
+        guard self.isPaused && self.operating else { return }
+        defer {
+            DispatchQueue.main.runBlock(completionBlock)
+        }
+        self.state = .paused
+
+    }
+
+    public func stop(completionBlock:(()->())? = nil) {
         guard self.operating else { return }
+        defer {
+            DispatchQueue.main.runBlock(completionBlock)
+        }
         self.state = .stopping
         // Shutdown connected peers because they can live in 'keep-alive' or 'websocket' loops.
         for socket in self.sockets {
@@ -108,6 +153,7 @@ public class HttpServerIO {
         }
         socket.close()
         self.state = .stopped
+        
     }
 
     public func dispatch(_ request: HttpRequest) -> ([String: String], (HttpRequest) -> HttpResponse) {
@@ -115,6 +161,11 @@ public class HttpServerIO {
     }
 
     private func handleConnection(_ socket: Socket) {
+        if self.isPaused {            
+            socket.close()
+            return
+        }
+        
         let parser = HttpParser()
         while self.operating, let request = try? parser.readHttpRequest(socket) {
             let request = request

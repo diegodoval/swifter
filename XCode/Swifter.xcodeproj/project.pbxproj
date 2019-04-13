@@ -106,6 +106,14 @@
 		7CDAB8131BE2A1D400C8A977 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAB80D1BE2A1D400C8A977 /* Main.storyboard */; };
 		7CDAB8141BE2A1D400C8A977 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7CDAB80F1BE2A1D400C8A977 /* Images.xcassets */; };
 		7CDAB8161BE2A1D400C8A977 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CDAB8111BE2A1D400C8A977 /* ViewController.swift */; };
+		F1C57F6C22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
+		F1C57F6D22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
+		F1C57F6E22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
+		F1C57F6F22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
+		F1C57F7022621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
+		F1C57F7122621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
+		F1C57F7222621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
+		F1C57F7322621FFF002C645E /* DispatchQueue+Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -214,6 +222,7 @@
 		7CDAB80F1BE2A1D400C8A977 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7CDAB8101BE2A1D400C8A977 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7CDAB8111BE2A1D400C8A977 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Misc.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -339,6 +348,7 @@
 				7C76B29E1D369BEC00D35BFB /* Socket+File.swift */,
 				7C458EFB1D4A7526006A68E5 /* Socket+Server.swift */,
 				7C76B6F61D2C44F30030FC98 /* String+BASE64.swift */,
+				F1C57F6B22621FFF002C645E /* DispatchQueue+Misc.swift */,
 				7C76B6F71D2C44F30030FC98 /* String+Misc.swift */,
 				7C76B6F81D2C44F30030FC98 /* String+SHA1.swift */,
 				7C76B6F91D2C44F30030FC98 /* WebSockets.swift */,
@@ -746,6 +756,7 @@
 				043660D221FED36800497989 /* IOSafetyTests.swift in Sources */,
 				043660D021FED35B00497989 /* SwifterTestsStringExtensions.swift in Sources */,
 				043660CD21FED35200497989 /* SwifterTestsHttpRouter.swift in Sources */,
+				F1C57F7222621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				043660CE21FED35500497989 /* SwifterTestsHttpParser.swift in Sources */,
 				043660D521FED36C00497989 /* MimeTypesTests.swift in Sources */,
 			);
@@ -760,6 +771,7 @@
 				043660EA21FED51E00497989 /* IOSafetyTests.swift in Sources */,
 				043660E821FED51900497989 /* SwifterTestsStringExtensions.swift in Sources */,
 				043660E521FED51100497989 /* SwifterTestsHttpRouter.swift in Sources */,
+				F1C57F7322621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				043660E621FED51400497989 /* SwifterTestsHttpParser.swift in Sources */,
 				043660EB21FED52000497989 /* MimeTypesTests.swift in Sources */,
 			);
@@ -785,6 +797,7 @@
 				2659FC1A1DADC077003F3930 /* String+File.swift in Sources */,
 				269B47961D3AAAE20042D137 /* HttpRouter.swift in Sources */,
 				6AE2FF742048013100302EC4 /* MimeTypes.swift in Sources */,
+				F1C57F7022621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				269B47971D3AAAE20042D137 /* String+SHA1.swift in Sources */,
 				7C458EFE1D4A7526006A68E5 /* Socket+Server.swift in Sources */,
 				269B47981D3AAAE20042D137 /* Errno.swift in Sources */,
@@ -812,6 +825,7 @@
 				7C76B7111D2C45710030FC98 /* Files.swift in Sources */,
 				7C76B7191D2C457C0030FC98 /* HttpRouter.swift in Sources */,
 				6AE2FF722048013000302EC4 /* MimeTypes.swift in Sources */,
+				F1C57F6E22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				7C76B7291D2C45920030FC98 /* String+SHA1.swift in Sources */,
 				7C458EFC1D4A7526006A68E5 /* Socket+Server.swift in Sources */,
 				7C76B2A21D369C9D00D35BFB /* Errno.swift in Sources */,
@@ -839,6 +853,7 @@
 				7C76B7121D2C45710030FC98 /* Files.swift in Sources */,
 				7C76B71A1D2C457C0030FC98 /* HttpRouter.swift in Sources */,
 				6AE2FF732048013000302EC4 /* MimeTypes.swift in Sources */,
+				F1C57F6F22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				7C76B72A1D2C45920030FC98 /* String+SHA1.swift in Sources */,
 				7C458EFD1D4A7526006A68E5 /* Socket+Server.swift in Sources */,
 				7C76B2A31D369C9D00D35BFB /* Errno.swift in Sources */,
@@ -850,6 +865,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1C57F6C22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				7B74CFA82163C40F001BE07B /* AppDelegate.swift in Sources */,
 				7CDAB8161BE2A1D400C8A977 /* ViewController.swift in Sources */,
 				7B912F4A220507D00062C360 /* XCTestManifests.swift in Sources */,
@@ -862,6 +878,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7CA4813E19A2EA8D0030B30D /* main.swift in Sources */,
+				F1C57F6D22621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				7B912F4D2205083D0062C360 /* LinuxMain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -877,6 +894,7 @@
 				7C4785E91C71D15600A9FE73 /* SwifterTestsWebSocketSession.swift in Sources */,
 				043660D421FED36900497989 /* IOSafetyTests.swift in Sources */,
 				7CCD87721C660B250068099B /* SwifterTestsStringExtensions.swift in Sources */,
+				F1C57F7122621FFF002C645E /* DispatchQueue+Misc.swift in Sources */,
 				7B11AD4B21C9A8A6002F8820 /* SwifterTestsHttpRouter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
